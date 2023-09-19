@@ -34,8 +34,8 @@ function M.create (buffer, start_row, start_col, end_row, end_col)
     local extmark_opts = get_default_extmark_opts()
 
     if end_row ~= start_row or end_col ~= start_col then
-        extmark_opts.end_row = end_row
-        extmark_opts.end_col = end_col
+        extmark_opts.end_row = end_row - 1
+        extmark_opts.end_col = end_col - 1
     end
 
     local extmark_id = vim.api.nvim_buf_set_extmark(buffer, ns_id, start_row, start_col, extmark_opts)
